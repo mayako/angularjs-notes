@@ -1,8 +1,8 @@
 {
-  "name": "pokedex",
+  "name": "HelloMexico",
   "version": "1.0.0",
   "description": "A AngularJS project",
-  "author": "Yakin Garcia <mayako.0413@gmail.com>",
+  "author": "Yakin Garcia <soy.yakingarcia@gmail.com>",
   "private": true,
   "scripts": {
     "start": "node server.js"

@@ -1,8 +1,12 @@
-var express = require('express');
-var path = require('path');
-var serveStatic = require('serve-static');
-app = express();
-app.use(serveStatic(__dirname + "/"));
-var port = process.env.PORT || 5000;
-app.listen(port);
-console.log('server started '+ port);
+const express = require('express');
+const path    = require('path');
+
+const app = express();
+
+// Settings
+app.set('port', process.env.PORT || 5000);
+
+// static files
+app.use(express.static(path.join(__dirname, "src/")));
+
+app.listen(app.get('port'), () => console.log('server started '+ app.get('port')));

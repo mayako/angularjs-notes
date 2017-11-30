@@ -6,9 +6,9 @@
     .controller('LogoutController', LogoutController)
 
 
-    LogoutController.$inject = ['$scope', '$location', '$cookies'];
+    LogoutController.$inject = ['$location', '$cookies'];
 
-    function LogoutController($scope, $location, $cookies) {
+    function LogoutController($location, $cookies) {
       $cookies.remove('currentUser');
       $location.path('/login');
     }

@@ -9,8 +9,10 @@
     LoginController.$inject = ['$scope', '$location', '$cookies', '$firebaseObject'];
 
     function LoginController($scope, $location, $cookies, $firebaseObject) {
+      $scope.showError = false;
 
       $scope.login = function() {
+
         let user_ref = db.ref('users/' + $scope.username.toLowerCase());
 
         $firebaseObject(user_ref).$loaded().then(user => {
@@ -23,6 +25,10 @@
             $cookies.putObject('currentUser', user.username.toLowerCase(), { expires: cookieExp });
 
             $location.path('/');
+          }
+
+          else {
+            $scope.showError = true;
           }
         })
       }

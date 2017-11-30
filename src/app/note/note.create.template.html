@@ -4,22 +4,29 @@
     <h2 class="md-toolbar-tools"><span>Nueva Nota</span></h2>
   </md-toolbar>
 
-  <md-content class="md-padding" layout="column">
+  <md-content class="md-padding">
+    <form novalidate name="frmNote" layout="column">
+      <md-input-container>
+        <label>Titulo</label>
+        <input type="text" ng-model="title" required/>
+        <div ng-messages="title.$error">
+          <div ng-message="required">Campo requerido.</div>
+        </div>
+      </md-input-container>
 
-    <md-input-container>
-      <label>Titulo</label>
-      <input type="text" ng-model="title"/>
-    </md-input-container>
+      <md-input-container>
+        <label>Comentario</label>
+        <textarea ng-model="comment" required></textarea>
+        <div ng-messages="comment.$error">
+          <div ng-message="required">Campo requerido.</div>
+        </div>
+      </md-input-container>
 
-    <md-input-container>
-      <label>Comentario</label>
-      <textarea ng-model="comment"></textarea>
-    </md-input-container>
-
-    <div layout="row" layout-align="center center" style="padding-top:20px">
-      <md-button class="md-primary" ng-click="cancel()">Cancelar</md-button>
-      <div flex="flex"></div>
-      <md-button class="md-raised md-primary" ng-click="save()">Guardar</md-button>
-    </div>
+      <div layout="row" layout-align="center center" style="padding-top:20px">
+        <md-button class="md-primary" ng-click="cancel()">Cancelar</md-button>
+        <div flex="flex"></div>
+        <md-button class="md-raised md-primary" ng-click="save()" ng-disabled="frmNote.$invalid">Guardar</md-button>
+      </div>
+    </form>
   </md-content>
 </div>
